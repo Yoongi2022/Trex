@@ -158,7 +158,7 @@ function draw() {
     
     if(touches.lenght > 0 || keyDown("space"))
     {
-      reset();
+      restart();
       touches = []
     }
   
