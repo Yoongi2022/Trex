@@ -101,8 +101,10 @@ function draw() {
     } 
     
     //INDICAR QUE CUANDO SE PRESIONE LA TECLA, TREX BRINCARA
-    if(keyDown("space")&& trex.y>=120) {
+    if(touches.lenght > 0 || keyDown("space")&& trex.y >= height-120) {
       jumpmp3.play();
+      touches = [];
+     
       
       
     //VELOCIDAD DEL PERSONAJE
@@ -153,6 +155,12 @@ function draw() {
     
      gameover.visible = true;
   restart.visible = true;
+    
+    if(touches.lenght > 0 || keyDown("space"))
+    {
+      reset();
+      touches = []
+    }
   
     //MANDAR A LLAMAR A LA FUNCIÓN "REINICIO"
   if(mousePressedOver(restart)) {
